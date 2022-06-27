@@ -8,6 +8,8 @@ def drawGrid():
     pygame.draw.rect(window,(125,125,125),(i,1,1,height),border_radius=0)
   for j in range(0,width,10):
     pygame.draw.rect(window,(125,125,125),(1,j,width,1),border_radius=0)
+
+game.InitGrid()
       
 
   
