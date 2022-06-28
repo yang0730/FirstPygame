@@ -1,6 +1,6 @@
 import pygame,draw,game
 pygame.init()
-height,width = 150,200
+height,width = 300,400
 BGC = 0,0,0
 window = pygame.display.set_mode((width,height))
 def drawGrid():
@@ -22,7 +22,7 @@ while 1:
   game.game(window)
   ev = pygame.event.get()
   for event in ev:
-    if event.type == pygame.MOUSEBUTTONUP and event.button == 1:
+    if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
       pos=pygame.mouse.get_pos()
       x=pos[0]//10
       y=pos[1]//10  
@@ -32,8 +32,12 @@ while 1:
       else: 
         game.Grid[x][y] =1
         draw.block(window,x,y)
-    if event.type == pygame.MOUSEBUTTONUP and event.button == 3:
+    if event.type == pygame.MOUSEBUTTONDOWN and event.button == 3:
       game.paused = not game.paused
+    if event.type == pygame.MOUSEBUTTONDOWN and event.button == 4:
+      game.InitGrid()
+      draw.clearGrid(window)
+      pygame.display.flip()
 
 
 
