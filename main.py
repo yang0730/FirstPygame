@@ -1,24 +1,21 @@
-import pygame,draw,game
+import pygame,draw,game,time
 pygame.init()
 height,width = 300,400
 BGC = 0,0,0
 window = pygame.display.set_mode((width,height))
-def drawGrid():
-  for i in range(0,width,10):
-    pygame.draw.rect(window,(125,125,125),(i,1,1,height),border_radius=0)
-  for j in range(0,height,10):
-    pygame.draw.rect(window,(125,125,125),(1,j,width,1),border_radius=0)
+
 
 
 game.InitGrid()
 
 pygame.display.set_caption("Deez Nut")
 window.fill(BGC)
-drawGrid()
-#game.game(window)
+time.sleep(0.5)
+draw.clearGrid(window)
+
 
 while 1:
-  drawGrid()
+  draw.drawGrid(window,width,height)
   game.game(window)
   ev = pygame.event.get()
   for event in ev:
@@ -34,10 +31,6 @@ while 1:
         draw.block(window,x,y)
     if event.type == pygame.MOUSEBUTTONDOWN and event.button == 3:
       game.paused = not game.paused
-    if event.type == pygame.MOUSEBUTTONDOWN and event.button == 4:
-      game.InitGrid()
-      draw.clearGrid(window)
-      pygame.display.flip()
 
 
 

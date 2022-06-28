@@ -12,4 +12,10 @@ def unblock(wnd,x,y):
 def clearGrid(wnd):
   for i in range(len(game.Grid)):
     for j in range(len(game.Grid[i])):
-      unblock(wnd,i*10,j*10)
+      unblock(wnd,i,j)
+
+def drawGrid(wnd,width,height):
+  for i in range(0,width,10):
+    pygame.draw.rect(wnd,(125,125,125),(i,1,1,height),border_radius=0)
+  for j in range(0,height,10):
+    pygame.draw.rect(wnd,(125,125,125),(1,j,width,1),border_radius=0)

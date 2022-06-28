@@ -10,7 +10,6 @@ def InitGrid():
     for j in range(30):
       Grid[i].append(0)
       PreGrid[i].append(0)
-  print(len(Grid),len(Grid[1]))
 
 def check(x,y):
   testX = [(x-1),x,(x+1)]
@@ -54,6 +53,7 @@ def game(wnd):
     pygame.display.update()
     updateblocks(wnd)
   if paused:
+    draw.drawGrid(wnd,400,300)
     pass
   time.sleep(0.5)
 
